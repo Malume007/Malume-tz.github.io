@@ -6,68 +6,86 @@
 <title>DOUBLE TOUCHEZ STUDIO - Photography & Video</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
+:root{
+--bg:#0e0e0e;--card:#1a1a1a;--text:#fff;--muted:#999;--accent:#ff6b00;--white:#fff;--black:#000
+}
+body.light{
+--bg:#f8f9fa;--card:#fff;--text:#222;--muted:#666;--black:#fff
+}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Poppins',sans-serif;background:#0e0e0e;color:#fff;overflow-x:hidden}
+body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;transition:0.4s}
 .container{max-width:1200px;margin:auto;padding:0 20px}
 
+/* Dark/Light Toggle */
+.theme-toggle{position:fixed;bottom:90px;right:25px;background:var(--accent);width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;border:none;cursor:pointer;z-index:1000;box-shadow:0 5px 20px rgba(255,107,0,0.4)}
+.theme-toggle:hover{transform:scale(1.1)}
+
 /* Header */
-header{background:#0a0a0a;padding:20px 0;position:fixed;width:100%;top:0;z-index:1000;border-bottom:1px solid #222}
+header{background:var(--bg);padding:20px 0;position:fixed;width:100%;top:0;z-index:1000;border-bottom:1px solid var(--card)}
 nav{display:flex;justify-content:space-between;align-items:center}
-.logo{font-size:26px;font-weight:700;color:#ff6b00;display:flex;align-items:center;gap:8px;text-decoration:none}
+.logo{font-size:26px;font-weight:700;color:var(--accent);display:flex;align-items:center;gap:8px;text-decoration:none}
 .logo::before{content:"📷";font-size:28px}
 nav ul{list-style:none;display:flex;gap:30px;align-items:center}
-nav ul li a{color:#fff;text-decoration:none;font-weight:500;font-size:15px;transition:0.3s}
-nav ul li a:hover{color:#ff6b00}
-.btn-quote{background:transparent;border:2px solid #ff6b00;color:#ff6b00;padding:10px 25px;border-radius:25px;font-weight:600;cursor:pointer;transition:0.3s}
-.btn-quote:hover{background:#ff6b00;color:#fff}
+nav ul li a{color:var(--text);text-decoration:none;font-weight:500;font-size:15px;transition:0.3s}
+nav ul li a:hover{color:var(--accent)}
+.btn-quote{background:transparent;border:2px solid var(--accent);color:var(--accent);padding:10px 25px;border-radius:25px;font-weight:600;cursor:pointer;transition:0.3s;text-decoration:none}
+.btn-quote:hover{background:var(--accent);color:var(--white)}
 
-/* Hero Section */
-.hero{height:100vh;background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('images/outdoor.jpg') center/cover;display:flex;align-items:center;position:relative}
+/* Hero */
+.hero{height:100vh;background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('https://images.unsplash.com/photo-1502920917128-1aa500764cbd?q=80&w=2070') center/cover;display:flex;align-items:center;position:relative}
 .hero-content{max-width:600px}
-.hero h5{color:#ff6b00;font-size:14px;letter-spacing:3px;margin-bottom:15px;font-weight:600}
+.hero h5{color:var(--accent);font-size:14px;letter-spacing:3px;margin-bottom:15px;font-weight:600}
 .hero h1{font-size:60px;font-weight:700;line-height:1.2;margin-bottom:20px}
 .hero p{color:#aaa;font-size:16px;line-height:1.8;margin-bottom:30px}
-.btn-group{display:flex;gap:15px}
+.btn-group{display:flex;gap:15px;flex-wrap:wrap}
 .btn{padding:12px 30px;border-radius:25px;font-weight:600;text-decoration:none;transition:0.3s;display:inline-block}
-.btn-white{background:#fff;color:#000}
-.btn-outline{background:transparent;border:2px solid #fff;color:#fff}
+.btn-white{background:var(--white);color:var(--black)}
+.btn-outline{background:transparent;border:2px solid var(--white);color:var(--white)}
 .btn:hover{transform:translateY(-3px)}
 
-/* About Section */
-.about{padding:100px 0;background:#fff;color:#000}
+/* About */
+.about{padding:100px 0;background:var(--white);color:var(--black)}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
 .about h2{font-size:42px;font-weight:700;margin-bottom:20px;line-height:1.3}
-.about p{color:#666;line-height:1.8;margin-bottom:20px}
+.about p{color:var(--muted);line-height:1.8;margin-bottom:20px}
 .about ul{list-style:none;margin:25px 0}
 .about ul li{margin-bottom:12px;color:#444;display:flex;align-items:center;gap:10px}
-.about ul li::before{content:"✓";color:#ff6b00;font-weight:700;font-size:18px}
-.btn-discover{background:#000;color:#fff;padding:12px 30px;border-radius:25px;text-decoration:none;display:inline-block;font-weight:600}
+.about ul li::before{content:"✓";color:var(--accent);font-weight:700;font-size:18px}
+.btn-discover{background:var(--black);color:var(--white);padding:12px 30px;border-radius:25px;text-decoration:none;display:inline-block;font-weight:600}
 .img-box{position:relative}
-.img-box img{width:100%;height:450px;object-fit:cover}
-.exp-badge{position:absolute;bottom:30px;left:30px;background:#000;padding:25px 35px;color:#fff}
-.exp-badge h3{font-size:40px;color:#ff6b00;margin-bottom:5px}
+.img-box img{width:100%;height:450px;object-fit:cover;border-radius:10px}
+.exp-badge{position:absolute;bottom:30px;left:30px;background:var(--black);padding:25px 35px;color:var(--white);border-radius:8px}
+.exp-badge h3{font-size:40px;color:var(--accent);margin-bottom:5px}
 .exp-badge p{font-size:14px;color:#ccc}
 
-/* Services Section */
-.services{padding:100px 0;background:#0e0e0e}
+/* Services */
+.services{padding:100px 0;background:var(--bg)}
 .section-title{text-align:center;margin-bottom:60px}
 .section-title h2{font-size:42px;font-weight:700;margin-bottom:15px}
-.section-title p{color:#888;max-width:600px;margin:auto}
+.section-title p{color:var(--muted);max-width:600px;margin:auto}
 .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
-.service-card{background:#1a1a1a;padding:40px 30px;border:1px solid #222;transition:0.4s;position:relative}
-.service-card:hover{border-color:#ff6b00;transform:translateY(-10px)}
-.service-icon{font-size:40px;color:#ff6b00;margin-bottom:20px}
-.service-card h3{font-size:20px;margin-bottom:15px;font-weight:600}
-.service-card p{color:#999;font-size:14px;line-height:1.7;margin-bottom:20px}
-.service-card a{color:#ff6b00;text-decoration:none;font-weight:600;font-size:14px}
-.price-tag{color:#ff6b00;font-weight:700;font-size:16px;margin-top:10px}
+.service-card{background:var(--card);border-radius:12px;overflow:hidden;border:1px solid #333;transition:0.4s}
+.service-card:hover{border-color:var(--accent);transform:translateY(-10px);box-shadow:0 20px 40px rgba(255,107,0,0.2)}
+.service-card img{width:100%;height:200px;object-fit:cover}
+.service-body{padding:30px}
+.service-icon{font-size:35px;color:var(--accent);margin-bottom:15px}
+.service-card h3{font-size:20px;margin-bottom:12px;font-weight:600}
+.service-card p{color:var(--muted);font-size:14px;line-height:1.7;margin-bottom:15px}
+.price-tag{color:var(--accent);font-weight:700;font-size:16px;margin-bottom:15px}
+.service-card a{color:var(--accent);text-decoration:none;font-weight:600;font-size:14px}
+
+/* Gallery */
+.gallery{padding:100px 0;background:var(--card)}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px}
+.gallery-grid img{width:100%;height:250px;object-fit:cover;border-radius:8px;transition:0.4s;cursor:pointer}
+.gallery-grid img:hover{transform:scale(1.05);filter:brightness(1.2)}
 
 /* Footer */
-footer{background:#000;padding:50px 0;text-align:center;border-top:1px solid #222}
+footer{background:var(--black);padding:50px 0;text-align:center;border-top:1px solid #222}
 footer p{color:#666;margin-bottom:10px}
-.location{color:#ff6b00;font-weight:600;font-size:16px;margin:15px 0}
+.location{color:var(--accent);font-weight:600;font-size:16px;margin:15px 0}
+.whatsapp{position:fixed;bottom:25px;right:25px;background:#25D366;width:65px;height:65px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;text-decoration:none;color:#fff;box-shadow:0 0 20px rgba(37,211,102,0.5);z-index:999}
 
-/* Responsive */
 @media(max-width:768px){
 .hero h1{font-size:36px}
 .about-grid{grid-template-columns:1fr}
@@ -77,6 +95,8 @@ nav ul{display:none}
 </head>
 <body>
 
+<button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+
 <!-- Header -->
 <header>
 <div class="container">
@@ -85,7 +105,7 @@ nav ul{display:none}
 <ul>
 <li><a href="#">Home</a></li>
 <li><a href="#about">About</a></li>
-<li><a href="#services">Service</a></li>
+<li><a href="#services">Services</a></li>
 <li><a href="#gallery">Gallery</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
@@ -94,13 +114,13 @@ nav ul{display:none}
 </div>
 </header>
 
-<!-- Hero Section -->
+<!-- Hero -->
 <section class="hero">
 <div class="container">
 <div class="hero-content">
 <h5>HELLO THERE!</h5>
 <h1>I AM DOUBLE TOUCHEZ STUDIO</h1>
-<p>Tunatoa huduma bora za Photography, Videography na Graphics Design Tabora Usagara. Picha za kitaalamu kwa bei nafuu kabisa.</p>
+<p>Tunatoa huduma bora za Photography, Videography na Graphics Design Tabora Usagara. Picha za kitaalamu kwa bei nafuu kabisa - Picha 1 Tsh 3,000 tu.</p>
 <div class="btn-group">
 <a href="https://wa.me/255626986627" class="btn btn-white" target="_blank">Contact Me</a>
 <a href="#about" class="btn btn-outline">About Me</a>
@@ -109,23 +129,23 @@ nav ul{display:none}
 </div>
 </section>
 
-<!-- About Section -->
+<!-- About -->
 <section class="about" id="about">
 <div class="container">
 <div class="about-grid">
 <div>
 <h2>We Are Expert for<br>Professional Photography</h2>
-<p>DOUBLE TOUCHEZ STUDIO ni studio ya kisasa iliyopo Tabora mtaa wa Usagara. Tunatumia vifaa vya kisasa na timu ya wataalamu kuhakikisha unapata picha na video bora zaidi.</p>
+<p>DOUBLE TOUCHEZ STUDIO ni studio ya kisasa iliyopo Tabora mtaa wa Usagara jirani na Kilimanjaro Bar. Tunatumia vifaa vya kisasa 4K na timu ya wataalamu.</p>
 <ul>
 <li>Photography ya kisasa kwa vifaa vya 4K</li>
-<li>Bei nafuu: Picha 1 Tsh 3,000 tu</li>
-<li>Package ya picha 5 ni Tsh 15,000</li>
-<li>Timu ya wataalamu + uzoefu wa miaka mingi</li>
+<li>Bei nafuu: Picha 1 Tsh 3,000 | Package 5 Tsh 15,000</li>
+<li>Advance payment inathibitisha booking</li>
+<li>Timu ya wataalamu + miaka 5 ya uzoefu</li>
 </ul>
 <a href="#services" class="btn-discover">Discover More</a>
 </div>
 <div class="img-box">
-<img src="images/studio.jpg" alt="Photographer">
+<img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=800" alt="Professional Photographer">
 <div class="exp-badge">
 <h3>5+ </h3>
 <p>Years Of Experience</p>
@@ -135,7 +155,7 @@ nav ul{display:none}
 </div>
 </section>
 
-<!-- Services Section -->
+<!-- Services with matching images -->
 <section class="services" id="services">
 <div class="container">
 <div class="section-title">
@@ -145,53 +165,88 @@ nav ul{display:none}
 <div class="services-grid">
 
 <div class="service-card">
+<img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800" alt="Portrait Photography">
+<div class="service-body">
 <div class="service-icon">📸</div>
 <h3>Photo Package Special</h3>
 <p>Picha 1 ni Tsh 3,000 tu. Ukichukua package ya picha 5 unalipia Tsh 15,000. Offer ya mitaani Usagara.</p>
 <div class="price-tag">Tsh 3,000 / Tsh 15,000</div>
-<a href="https://wa.me/255626986627?text=Nataka%20PHOTO%20PACKAGE" target="_blank">Learn More</a>
+<a href="https://wa.me/255626986627?text=Nataka%20PHOTO%20PACKAGE" target="_blank">Book Now</a>
+</div>
 </div>
 
 <div class="service-card">
+<img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=800" alt="Outdoor Photography">
+<div class="service-body">
 <div class="service-icon">🌅</div>
 <h3>Outdoor Photography</h3>
 <p>Shoot za nje: Nature, City, Beach, Sunset. Tunakuja location yako yoyote Tabora na vifaa kamili.</p>
 <div class="price-tag">Tsh 80,000 + Advance 20,000</div>
-<a href="https://wa.me/255626986627?text=Nataka%20OUTDOOR" target="_blank">Learn More</a>
+<a href="https://wa.me/255626986627?text=Nataka%20OUTDOOR" target="_blank">Book Now</a>
+</div>
 </div>
 
 <div class="service-card">
+<img src="https://images.unsplash.com/photo-1493863641943-9b68992a8d07?q=80&w=800" alt="Studio Indoor">
+<div class="service-body">
 <div class="service-icon">🏠</div>
 <h3>Indoor Studio</h3>
 <p>Studio Photoshoot: Portrait, Product, Fashion. Lighting ya kitaalamu na background mbalimbali.</p>
 <div class="price-tag">Tsh 60,000 + Advance 15,000</div>
-<a href="https://wa.me/255672174990?text=Nataka%20INDOOR" target="_blank">Learn More</a>
+<a href="https://wa.me/255672174990?text=Nataka%20INDOOR" target="_blank">Book Now</a>
+</div>
 </div>
 
 <div class="service-card">
+<img src="https://images.unsplash.com/photo-1519744792095-2f2205e87b6f?q=80&w=800" alt="Wedding Photography">
+<div class="service-body">
 <div class="service-icon">💍</div>
 <h3>Wedding Photography</h3>
 <p>Pre-wedding, Wedding Day, Couple Shoot. Tunahifadhi kumbukumbu zako kwa ubora wa hali ya juu.</p>
 <div class="price-tag">Tsh 300,000 + Advance 100,000</div>
-<a href="https://wa.me/255718071430?text=Nataka%20WEDDING" target="_blank">Learn More</a>
+<a href="https://wa.me/255718071430?text=Nataka%20WEDDING" target="_blank">Book Now</a>
+</div>
 </div>
 
 <div class="service-card">
+<img src="https://images.unsplash.com/photo-1536240478700-b869070f3e9b?q=80&w=800" alt="Videography">
+<div class="service-body">
 <div class="service-icon">🎥</div>
 <h3>Videography</h3>
 <p>Video Shooting aina zote: Events, Documentary, Ads, Birthday. Editing ya kisasa 4K quality.</p>
 <div class="price-tag">Tsh 150,000 + Advance 50,000</div>
-<a href="https://wa.me/255626986627?text=Nataka%20VIDEO" target="_blank">Learn More</a>
+<a href="https://wa.me/255626986627?text=Nataka%20VIDEO" target="_blank">Book Now</a>
+</div>
 </div>
 
 <div class="service-card">
+<img src="https://images.unsplash.com/photo-1561070791-2526d3092b5c?q=80&w=800" alt="Graphic Design">
+<div class="service-body">
 <div class="service-icon">🎨</div>
 <h3>Graphics & Flayer Design</h3>
 <p>Logo, Banner, Poster, Flayer za matangazo. Design ya kisasa print ready kwa biashara yako.</p>
 <div class="price-tag">Tsh 25,000 - Tsh 40,000</div>
-<a href="https://wa.me/255672174990?text=Nataka%20DESIGN" target="_blank">Learn More</a>
+<a href="https://wa.me/255672174990?text=Nataka%20DESIGN" target="_blank">Book Now</a>
+</div>
 </div>
 
+</div>
+</div>
+</section>
+
+<!-- Gallery with matching images -->
+<section class="gallery" id="gallery">
+<div class="container">
+<div class="section-title">
+<h2>Our Latest Work</h2>
+</div>
+<div class="gallery-grid">
+<img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=600" alt="Wedding Couple">
+<img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=600" alt="Portrait Studio">
+<img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600" alt="Outdoor Shoot">
+<img src="https://images.unsplash.com/photo-1532635241-17e820acc59f?q=80&w=600" alt="Fashion Shoot">
+<img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=600" alt="Event Photography">
+<img src="https://images.unsplash.com/photo-1471341971476-ae15ff5dd4ea?q=80&w=600" alt="Product Photo">
 </div>
 </div>
 </section>
@@ -199,15 +254,33 @@ nav ul{display:none}
 <!-- Footer -->
 <footer id="contact">
 <div class="container">
-<p style="font-size:20px;color:#ff6b00;font-weight:700">DOUBLE TOUCHEZ STUDIO</p>
+<p style="font-size:20px;color:var(--accent);font-weight:700">DOUBLE TOUCHEZ STUDIO</p>
 <p class="location">📍 Tabora Tanzania, Mtaa wa Usagara Jirani na Kilimanjaro Bar</p>
 <p>© 2026 All Rights Reserved | Tel: 0626986627 | 0672174990 | 0718071430</p>
 <p style="margin-top:20px">
-<a href="https://www.facebook.com/ferrari.ng.94" target="_blank" style="color:#ff6b00;text-decoration:none;margin:0 10px">Facebook</a> | 
-<a href="https://wa.me/255626986627" target="_blank" style="color:#ff6b00;text-decoration:none;margin:0 10px">WhatsApp</a>
+<a href="https://www.facebook.com/ferrari.ng.94" target="_blank" style="color:var(--accent);text-decoration:none;margin:0 10px">Facebook</a> | 
+<a href="https://wa.me/255626986627" target="_blank" style="color:var(--accent);text-decoration:none;margin:0 10px">WhatsApp</a>
 </p>
 </div>
 </footer>
+
+<a href="https://wa.me/255626986627" class="whatsapp" target="_blank">💬</a>
+
+<script>
+// Dark/Light Mode Toggle
+function toggleTheme(){
+document.body.classList.toggle('light');
+const btn = document.querySelector('.theme-toggle');
+btn.textContent = document.body.classList.contains('light') ? '🌙' : '☀️';
+localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark');
+}
+
+// Load saved theme
+if(localStorage.getItem('theme') === 'light'){
+document.body.classList.add('light');
+document.querySelector('.theme-toggle').textContent = '🌙';
+}
+</script>
 
 </body>
   </html>
