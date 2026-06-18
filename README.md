@@ -1,2 +1,4 @@
-# Malume-tz.github.io
-MALUME Tz IT Solutions - Web Development, App Development, IT Support &amp; Networking services based in Tabora, Tanzania
+## © License
+All code, design, and content of this website is owned by DOUBLE TOUCHEZ STUDIO. 
+Unauthorized copying, modification, or distribution is strictly prohibited. 
+© 2026 All Rights Reserved.
