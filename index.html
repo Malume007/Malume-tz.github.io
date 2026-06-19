@@ -16,6 +16,37 @@ body.light{
 body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;transition:0.4s}
 .container{max-width:1200px;margin:auto;padding:0 20px}
 
+/* Preloader Style - Beep Beep Wakawaka */
+#loader{
+position:fixed;top:0;left:0;width:100%;height:100%;
+background:var(--bg);z-index:9999;display:flex;
+align-items:center;justify-content:center;
+transition:opacity 0.5s ease;
+}
+.loader-content{text-align:center}
+.logo-loader{
+font-size:32px;font-weight:700;color:var(--accent);
+margin-bottom:30px;animation:pulse 1s infinite
+}
+.beep-wrapper{display:flex;gap:10px;justify-content:center;margin-bottom:20px}
+.beep{
+width:15px;height:15px;background:var(--accent);
+border-radius:50%;animation:beep 1.4s infinite both
+}
+.beep:nth-child(2){animation-delay:0.2s}
+.beep:nth-child(3){animation-delay:0.4s}
+#loader p{color:var(--muted);letter-spacing:2px;font-size:14px}
+
+/* Animations */
+@keyframes beep{
+0%,80%,100%{transform:scale(0.6);opacity:0.5}
+40%{transform:scale(1.2);opacity:1;box-shadow:0 0 20px var(--accent)}
+}
+@keyframes pulse{
+0%,100%{transform:scale(1)}
+50%{transform:scale(1.05)}
+}
+
 /* Dark/Light Toggle */
 .theme-toggle{position:fixed;bottom:90px;right:25px;background:var(--accent);width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;border:none;cursor:pointer;z-index:1000;box-shadow:0 5px 20px rgba(255,107,0,0.4)}
 .theme-toggle:hover{transform:scale(1.1)}
@@ -94,6 +125,19 @@ nav ul{display:none}
 </style>
 </head>
 <body>
+
+<!-- Loading Screen - Beep Beep -->
+<div id="loader">
+<div class="loader-content">
+<div class="logo-loader">📷 DOUBLE TOUCHEZ</div>
+<div class="beep-wrapper">
+<span class="beep"></span>
+<span class="beep"></span>
+<span class="beep"></span>
+</div>
+<p>Loading Studio...</p>
+</div>
+</div>
 
 <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
 
@@ -280,6 +324,16 @@ if(localStorage.getItem('theme') === 'light'){
 document.body.classList.add('light');
 document.querySelector('.theme-toggle').textContent = '🌙';
 }
+
+// Ficha loader baada ya sekunde 2.5
+window.addEventListener('load', function() {
+setTimeout(function() {
+document.getElementById('loader').style.opacity = '0';
+setTimeout(function() {
+document.getElementById('loader').style.display = 'none';
+}, 500);
+}, 2500);
+});
 </script>
 
 </body>
